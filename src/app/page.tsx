@@ -1,7 +1,14 @@
+import AboutMe from "@/components/AboutMe";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-12">
-      Hello world
+    <main className="flex flex-row bg-green-400 min-h-screen items-center p-12">
+      <div className="flex basis-1/3 bg-red-400">
+        <AboutMe />
+      </div>
+      <div className="flex basis-2/3 bg-blue-400">
+        <div>SectionSelector</div>
+      </div>
     </main>
   );
 }
