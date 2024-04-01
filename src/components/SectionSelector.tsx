@@ -22,7 +22,7 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
   };
 
   const renderData = (data: { category: string; posts: JSX.Element[] }[]) => {
-    console.log(data.map((category) => category.category));
+    // console.log(data.map((category) => category.category));
     const filteredData = data.filter(
       (category) => category.category === currentSection.folder
     );
@@ -41,7 +41,7 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
   // console.log(data.flatMap((category) => category.posts));
 
   return (
-    <>
+    <div className="flex flex-col">
       <div className="flex flex-row">
         {sections.map((section, index) => (
           <button
@@ -56,6 +56,6 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
         ))}
       </div>
       <div>{renderData(data)}</div>
-    </>
+    </div>
   );
 }
