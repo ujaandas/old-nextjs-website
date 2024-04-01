@@ -8,11 +8,9 @@ interface TextIconProps {
 export default function TextIcon({ icon, text }: TextIconProps) {
   const Icon = icon;
   return (
-    <div className="flex flex-row">
+    <span className="flex items-center align-bottom mb-1">
       <Icon />
-      <div>
-        <p> {text} </p>
-      </div>
-    </div>
+      <h3 className="ml-3 text-xl font-semibold"> {text} </h3>
+    </span>
   );
 }

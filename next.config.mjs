@@ -7,6 +7,10 @@ const config = withMDX()({
     domains: ["picsum.photos"],
   },
   output: "export",
+  basePath: "/ujaandas.github.io",
+  images: {
+    unoptimized: true,
+  },
 });
 
 export default config;

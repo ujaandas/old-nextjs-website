@@ -21,14 +21,22 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
     setCurrentSection(section);
   };
 
+  const renderAboutMe = () => {
+    return <div>About Me</div>;
+  };
+
   const renderData = (data: { category: string; posts: JSX.Element[] }[]) => {
     // console.log(data.map((category) => category.category));
+
+    if (currentSection === sections[0]) {
+      return renderAboutMe();
+    }
+
     const filteredData = data.filter(
       (category) => category.category === currentSection.folder
     );
     return filteredData.map((category) => (
       <div key={category.category}>
-        <h1>{category.category}</h1>
         <div>
           {category.posts.map((post, index) => (
             <div key={index}>{post}</div>
@@ -41,8 +49,8 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
   // console.log(data.flatMap((category) => category.posts));
 
   return (
-    <div className="flex flex-col">
-      <div className="flex flex-row">
+    <div className="flex flex-col w-full p-5">
+      <div className="flex flex-row justify-start">
         {sections.map((section, index) => (
           <button
             key={index}
