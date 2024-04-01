@@ -1,4 +1,3 @@
-import Image from "next/image";
 import aboutMe from "../../public/data/aboutMe.json";
 import { FaBookOpen, FaUniversity } from "react-icons/fa";
 import { FaPerson, FaLocationDot } from "react-icons/fa6";
@@ -10,9 +9,9 @@ export default function AboutMe() {
   const aboutMeIcons = [FaPerson, FaBookOpen, FaUniversity, FaLocationDot];
 
   return (
-    <main>
-      <div>
-        <Image
+    <div className="flex flex-col">
+      <div className="items-center justify-center">
+        <img
           src="https://picsum.photos/200"
           width={200}
           height={200}
@@ -28,6 +27,6 @@ export default function AboutMe() {
           ))}
         </ul>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,0 +1,6 @@
+[
+  { "folder": "aboutMe", "title": "About Me" },
+  { "folder": "experience", "title": "Experience" },
+  { "folder": "publications", "title": "Publications" },
+  { "folder": "projects", "title": "Projects" }
+]
