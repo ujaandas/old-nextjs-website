@@ -1,6 +1,6 @@
 import AboutMe from "@/components/Sidebar";
 import SectionSelector from "@/components/SectionSelector";
-import { fetchPosts, fetchSlugs } from "./lib/data";
+import { fetchPosts } from "./lib/data";
 
 export default async function Home() {
   const postData = await fetchPosts();

@@ -1,16 +1,19 @@
 import { promises as fs } from "fs";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import path from "path";
 
 const readFile = async (path: string) => {
   const post = await fs.readFile(path, "utf-8");
   return <MDXRemote source={post} />;
 };
 
+const basePath = path.join(process.cwd(), "public/data/posts");
+
 const readBasePath = async () => {
-  const dirs = await fs.readdir("../../public/data/posts");
+  const posts = await fs.readdir(basePath);
   const categories = await Promise.all(
-    dirs.map(async (category) => {
-      const files = await fs.readdir(`../../public/data/posts/${category}`);
+    posts.map(async (category) => {
+      const files = await fs.readdir(`${basePath}/${category}`);
       return { category, files };
     })
   );
@@ -25,7 +28,7 @@ export const fetchPosts = async () => {
       const posts = await Promise.all(
         category.files.map(async (file) => {
           const post = await readFile(
-            `../../public/data/posts/${category.category}/${file}`
+            `${basePath}/${category.category}/${file}`
           );
           return post;
         })
@@ -56,7 +59,7 @@ export const fetchSlugs = async () => {
       const posts = await Promise.all(
         category.files.map(async (file) => {
           const post = await fs.readFile(
-            `../../public/data/posts/${category.category}/${file}`,
+            `${basePath}/${category.category}/${file}`,
             "utf-8"
           );
           return post;
