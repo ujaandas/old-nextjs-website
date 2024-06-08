@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import aboutMe from "../../public/data/aboutMe.json";
+import aboutMe from "@/app/data/aboutMe.json";
 import { FaBookOpen, FaUniversity } from "react-icons/fa";
 import { FaPerson, FaLocationDot } from "react-icons/fa6";
 import TextIcon from "./TextIcon";
@@ -11,7 +11,7 @@ export default function AboutMe() {
 
   return (
     <div className="flex flex-col w-full py-5 px-7">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-start">
         <img
           src="https://picsum.photos/200"
           width={200}

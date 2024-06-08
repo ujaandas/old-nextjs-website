@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import sections from "../../public/data/sections.json";
+import sections from "@/app/data/sections.json";
+import SectionButton from "./SectionButton";
 
-interface SectionType {
+export interface SectionType {
   folder: String;
   title: String;
 }
@@ -27,14 +28,15 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
 
   const renderData = (data: { category: string; posts: JSX.Element[] }[]) => {
     // console.log(data.map((category) => category.category));
-
-    if (currentSection === sections[0]) {
+    const ABOUT_ME_INDEX = 0;
+    if (currentSection === sections[ABOUT_ME_INDEX]) {
       return renderAboutMe();
     }
 
     const filteredData = data.filter(
       (category) => category.category === currentSection.folder
     );
+
     return filteredData.map((category) => (
       <div key={category.category}>
         <div>
@@ -46,24 +48,20 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
     ));
   };
 
-  // console.log(data.flatMap((category) => category.posts));
-
   return (
     <div className="flex flex-col w-full p-5">
-      <div className="flex flex-row justify-start">
+      <div className="flex flex-row justify-start mb-3">
         {sections.map((section, index) => (
-          <button
+          <SectionButton
             key={index}
-            className={`${
-              currentSection === section ? "bg-blue-500" : "bg-blue-300"
-            } p-2 m-2 rounded-md`}
-            onClick={() => changeSection(section)}
-          >
-            {section.title}
-          </button>
+            currentSection={currentSection}
+            section={section}
+            index={index}
+            changeSection={async () => changeSection(section)}
+          />
         ))}
       </div>
-      <div>{renderData(data)}</div>
+      <div className="px-4 pt-2">{renderData(data)}</div>
     </div>
   );
 }

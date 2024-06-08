@@ -1,17 +1,17 @@
 import AboutMe from "@/components/Sidebar";
 import SectionSelector from "@/components/SectionSelector";
-import { fetchPosts } from "./lib/data";
+import { fetchAllPostContent } from "./lib/postFetcher";
 
 export default async function Home() {
-  const postData = await fetchPosts();
+  const postData = await fetchAllPostContent();
   // console.log(postData.flatMap((category) => category.posts));
 
   return (
-    <main className="flex flex-row bg-green-400 h-screen items-center p-12">
-      <div className="flex basis-1/3 h-full bg-red-400">
+    <main className="flex flex-row bg-cat-latte-base h-screen items-center text-cat-latte-text">
+      <div className="flex basis-1/4 h-full bg-cat-latte-mantle rounded-l p-8">
         <AboutMe />
       </div>
-      <div className="flex basis-2/3 h-full bg-blue-400">
+      <div className="flex basis-3/4 h-full bg-cat-latte-base rounded-r pt-2">
         <SectionSelector data={postData} />
       </div>
     </main>
