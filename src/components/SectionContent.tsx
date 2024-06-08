@@ -61,7 +61,7 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
           />
         ))}
       </div>
-      <div className="px-4 pt-2">{renderData(data)}</div>
+      <div className="px-4 pt-2 overflow-y-auto">{renderData(data)}</div>
     </div>
   );
 }

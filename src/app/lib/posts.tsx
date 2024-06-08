@@ -1,23 +1,20 @@
 import { promises as fs } from "fs";
-import Post from "@/components/Post";
 import path from "path";
+import { matterizeFile, matterToComponent } from "./mdx";
+import { DateRange, transformDateRange } from "./date";
 
 const basePath = path.join(process.cwd(), "src/app/markdown");
-
-export const renderPost = async (path: string) => {
-  // console.log(`Reading file at: ${path}`);
-  const post = await fs.readFile(path, "utf-8");
-  return <Post data={post} />;
-};
 
 const fetchCurrBasePath = async () => {
   const posts = await fs.readdir(basePath);
   const categories = await Promise.all(
     posts.map(async (category) => {
       const files = await fs.readdir(`${basePath}/${category}`);
+      // Sort files based on date
       return { category, files };
     })
   );
+  // console.log(categories);
   return categories;
 };
 
@@ -28,12 +25,17 @@ export const fetchAllPostContent = async () => {
     categories.map(async (category) => {
       const posts = await Promise.all(
         category.files.map(async (file) => {
-          const post = await renderPost(
+          const thisPost = await matterizeFile(
             `${basePath}/${category.category}/${file}`
           );
-          return post;
+          const thisDate = transformDateRange(thisPost.data.date);
+          const thisComponent = await matterToComponent(thisPost);
+          return { ...thisComponent, date: thisDate };
         })
       );
+
+      posts.sort((a, b) => b.date.start.getTime() - a.date.start.getTime());
+
       return { category: category.category, posts };
     })
   );
@@ -50,7 +52,6 @@ export const fetchAllPostPaths = async () => {
           return pathToFile;
         })
       );
-      // console.log(`paths: ${paths}`);
       return paths;
     })
   ).then((paths) => paths.flat());

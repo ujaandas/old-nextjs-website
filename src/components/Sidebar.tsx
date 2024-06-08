@@ -6,8 +6,8 @@ import TextIcon from "./TextIcon";
 
 export default function AboutMe() {
   // TODO: Lazy load icons from json
-  const aboutMeValues = Object.values(aboutMe);
-  const aboutMeIcons = [FaPerson, FaBookOpen, FaUniversity, FaLocationDot];
+  const sidebarValues = Object.values(aboutMe);
+  const sidebarIcons = [FaPerson, FaBookOpen, FaUniversity, FaLocationDot];
 
   return (
     <div className="flex flex-col w-full py-5 px-7">
@@ -21,9 +21,9 @@ export default function AboutMe() {
       </div>
       <div className="mt-5">
         <ul>
-          {aboutMeValues.map((value, index) => (
+          {sidebarValues.map((value, index) => (
             <li key={index}>
-              <TextIcon icon={aboutMeIcons[index]} text={value} />
+              <TextIcon icon={sidebarIcons[index]} text={value} />
             </li>
           ))}
         </ul>

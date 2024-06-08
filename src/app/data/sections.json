@@ -1,6 +1,6 @@
 [
   { "folder": "about me", "title": "About Me" },
   { "folder": "experience", "title": "Experience" },
-  { "folder": "publications", "title": "Publications" },
+  { "folder": "research", "title": "Research" },
   { "folder": "projects", "title": "Projects" }
 ]

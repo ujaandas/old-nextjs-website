@@ -1,4 +1,4 @@
-import { SectionType } from "./SectionSelector";
+import { SectionType } from "./SectionContent";
 
 interface SectionButtonProps {
   index: number;
