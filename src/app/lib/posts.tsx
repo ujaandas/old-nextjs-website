@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { matterizeFile, matterToComponent } from "./mdx";
-import { DateRange, transformDateRange } from "./date";
+import { transformDateRange } from "./date";
 
 const basePath = path.join(process.cwd(), "src/app/markdown");
 

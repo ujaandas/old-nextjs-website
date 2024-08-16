@@ -27,7 +27,6 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
   };
 
   const renderData = (data: { category: string; posts: JSX.Element[] }[]) => {
-    // console.log(data.map((category) => category.category));
     const ABOUT_ME_INDEX = 0;
     if (currentSection === sections[ABOUT_ME_INDEX]) {
       return renderAboutMe();
@@ -49,8 +48,8 @@ export default function SectionSelector({ data }: SectionSelectorProps) {
   };
 
   return (
-    <div className="flex flex-col w-full p-5">
-      <div className="flex flex-row justify-start mb-3">
+    <div className="flex flex-col w-full p-3">
+      <div className="flex flex-row justify-center md:justify-start mb-3">
         {sections.map((section, index) => (
           <SectionButton
             key={index}
