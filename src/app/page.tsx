@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main className="flex flex-row bg-cat-latte-base h-dvh justify-center text-cat-latte-text">
-      <div className="hidden md:flex basis-1/4 h-full bg-cat-latte-mantle rounded-l p-8">
+      <div className="hidden md:flex basis-1/4 h-full bg-cat-latte-mantle rounded-l p-4">
         <Sidebar />
       </div>
       <div className="flex basis-3/4 h-full bg-cat-latte-base rounded-r pt-2">

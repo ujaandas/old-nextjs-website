@@ -18,7 +18,7 @@ export default function SectionButton({
       key={index}
       className={`${
         currentSection === section ? "bg-cat-latte-overlay-0 bg-opacity-25" : ""
-      } p-2 m-2 rounded-md transition-colors duration-200 text-nowrap overflow-hidden`}
+      } p-2 md:m-1 rounded-md transition-colors duration-200 text-nowrap overflow-hidden`}
       onClick={() => changeSection(section)}
     >
       {section.title}

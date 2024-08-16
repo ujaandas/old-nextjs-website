@@ -1,6 +1,11 @@
 {
   "name": "Ujaan Das",
-  "major": "Computer Engineering",
-  "university": "HKUST",
-  "location": "Hong Kong"
+  "username": "ujaandas",
+  "currentRole": "Research Assistant & Computer Engineering Student", 
+  "currentCompany": "HKUST",
+  "currentLocation": "Hong Kong",
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/ujaandas",
+    "github": "https://www.github.com/ujaandas"
+  }
 }
