@@ -1,7 +1,7 @@
-import Image from "next/image";
 import aboutMe from "@/app/data/aboutMe.json";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
+import ProfilePic from "./ProfilePic";
 
 export default function AboutMe() {
   const cleanUrl = (url: string) =>
@@ -9,14 +9,7 @@ export default function AboutMe() {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="flex items-center justify-start">
-        <Image
-          src="https://picsum.photos/200"
-          width={200}
-          height={200}
-          alt="Profile picture placeholder"
-        />
-      </div>
+      <ProfilePic />
       <ul className="flex flex-col">
         <ul className="mt-3">
           <li className="flex items-center text-xl font-extrabold">
