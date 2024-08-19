@@ -13,7 +13,7 @@ export default async function Home() {
     //     <SectionScroller data={postData} />
     //   </div>
     // </main>
-    <main className="flex flex-col md:flex-row justify-center text-cat-latte-subtext-0">
+    <main className="flex flex-col md:flex-row p-10 align-middle items-center justify-center text-cat-latte-subtext-0">
       <AboutMe />
     </main>
   );

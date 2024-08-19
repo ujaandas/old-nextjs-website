@@ -8,12 +8,15 @@ async function AboutMe() {
   return (
     <div className="flex flex-col justify-center align-middle">
       <ProfilePic />
-      <BarItem text={`${aboutMe.name}`} textStyle="text-xl font-extrabold" />
+      <BarItem text={`${aboutMe.name}`} textStyle="text-5xl font-extrabold" />
+      <BarItem
+        text={`${aboutMe.currentRole} @ ${aboutMe.currentCompany}`}
+        textStyle="text-md"
+      />
       <BarItem
         text={`@${aboutMe.username} · ${aboutMe.pronouns}`}
-        textStyle="text-sm font-thin"
+        textStyle="text-md font-thin"
       />
-      <BarItem text={`${aboutMe.currentRole} @ ${aboutMe.currentCompany}`} />
       <div className="flex flex-row">
         <BarItem link={aboutMe.links.github}>
           <FaGithub
