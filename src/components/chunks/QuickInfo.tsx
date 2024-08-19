@@ -6,7 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 
 async function AboutMe() {
   return (
-    <div className="flex flex-col justify-center align-middle">
+    <div className="flex flex-col justify-center align-middle min-w-fit *:mt-1">
       <ProfilePic />
       <BarItem text={`${aboutMe.name}`} textStyle="text-5xl font-extrabold" />
       <BarItem

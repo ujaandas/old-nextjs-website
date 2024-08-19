@@ -12,13 +12,8 @@ export default function SidebarItem({
   children,
 }: SidebarItemProps) {
   return (
-    <div className={`flex ${children != undefined ? "mt-1" : ""} items-center`}>
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex ${children != undefined ? "mt-1" : ""} items-center`}
-      >
+    <div className={`flex ${children != undefined ? "mt-2" : ""} items-center`}>
+      <a href={link} target="_blank" rel="noopener noreferrer">
         {children}
         <p className={`${textStyle != undefined ? textStyle : ""}`}>{text}</p>
       </a>
