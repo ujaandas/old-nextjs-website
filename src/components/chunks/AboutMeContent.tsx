@@ -1,4 +1,5 @@
 async function AboutMeContent() {
+  // TODO: Replace with data fetching layer to get info straight from mdx
   return (
     <div>
       <div className="md:ml-10 mt-10 max-w-xl">
