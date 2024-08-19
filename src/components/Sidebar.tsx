@@ -5,7 +5,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import ProfilePic from "./ProfilePic";
 import { useState } from "react";
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "./BarItem";
 
 export default function AboutMe() {
   const [isOpen, setIsOpen] = useState(true);
@@ -13,12 +13,19 @@ export default function AboutMe() {
   const cleanUrl = (url: string) =>
     url.replace("https://", "").replace("http://", "").replace("www.", "");
 
-  // TODO: Create a custom hook to listen for window size changes
-  // If window is too small, auto close the sidebar
+  // TODO 1: Open and close the sidebar when the button is clicked
+
+  // // TODO 2: Create a custom hook to listen for window size changes
+  // // If window is too small, auto close the sidebar
 
   return (
-    <div className="flex flex-col w-full ">
-      <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? "<<" : ">>"}</button>
+    <div className="flex flex-row w-full ">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`${isOpen ? "hidden" : ""}`}
+      >
+        {isOpen ? "<<" : ">>"}
+      </button>
       <div
         className={`${
           isOpen
@@ -70,6 +77,12 @@ export default function AboutMe() {
           </ul>
         </ul>
       </div>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`${isOpen ? "" : "hidden"}`}
+      >
+        {isOpen ? "<<" : ">>"}
+      </button>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 interface SidebarItemProps {
-  text: string;
+  text?: string;
   textStyle?: string;
   link?: string;
   children?: React.ReactNode;
@@ -12,7 +12,7 @@ export default function SidebarItem({
   children,
 }: SidebarItemProps) {
   return (
-    <li className={`flex ${children != undefined ? "mt-1" : ""} items-center`}>
+    <div className={`flex ${children != undefined ? "mt-1" : ""} items-center`}>
       <a
         href={link}
         target="_blank"
@@ -22,6 +22,6 @@ export default function SidebarItem({
         {children}
         <p className={`${textStyle != undefined ? textStyle : ""}`}>{text}</p>
       </a>
-    </li>
+    </div>
   );
 }
