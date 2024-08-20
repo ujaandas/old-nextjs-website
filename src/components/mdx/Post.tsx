@@ -1,9 +1,9 @@
-import { GrayMatterData } from "@/lib/data-fetcher";
+import { PostMetadata } from "@/lib/data-fetcher";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Tags from "./Tags";
 
 interface PostProps {
-  metadata: GrayMatterData;
+  metadata: PostMetadata;
   content: string;
 }
 

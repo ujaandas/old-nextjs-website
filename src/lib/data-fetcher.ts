@@ -2,15 +2,6 @@ import fs from 'fs';
 import path from "path";
 import { matterizeFile, readGrayMatter } from "./helper/mdx";
 
-export interface GrayMatterData {
-  title: string;
-  subtitle: string;
-  date: string;
-  location: string;
-  tags: string[];
-  slug: string;
-}
-
 const BASE_PATH = path.join(process.cwd(), "src/content");
 
 const fetchMdx = async (dir: string) => {
@@ -45,7 +36,7 @@ export const fetchMdxByCategory = async (category: string) => {
 export const fetchAllMdx = async () => {
   // console.log('fetching all mdx');
   const categories = await fetchCategories();
-  const result: { [key: string]: { metadata: GrayMatterData, content: string }[] } = {};
+  const result: { [key: string]: { metadata: any, content: string }[] } = {};
   await Promise.all(
     categories.map(async (category) => {
       const files = await fetchMdxByCategory(category);
