@@ -1,6 +1,6 @@
 import ProfilePic from "../ProfilePic";
 import BarItem from "../BarItem";
-import aboutMe from "@/app/data/aboutMe.json";
+import aboutMe from "@/data/aboutMe.json";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 
