@@ -1,9 +1,8 @@
-import { PostMetadata } from "@/lib/data-fetcher";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Tags from "./Tags";
 
 interface PostProps {
-  metadata: PostMetadata;
+  metadata: any;
   content: string;
 }
 
