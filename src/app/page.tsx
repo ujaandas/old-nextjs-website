@@ -14,9 +14,9 @@ export default async function Home() {
       <section className="flex flex-col w-full">
         <ExperienceContent />
       </section>
-      <section className="flex flex-col w-full">
+      {/* <section className="flex flex-col w-full">
         <ResearchContent />
-      </section>
+      </section> */}
     </main>
   );
 }
