@@ -1,5 +1,5 @@
-import { GrayMatterData } from "@/components/Post";
 import matter, { GrayMatterFile } from "gray-matter";
+import { GrayMatterData } from "../data-fetcher";
 
 export const matterizeFile = async (file: string) => {
   return matter(file);
