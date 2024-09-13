@@ -2,13 +2,12 @@ import { fetchMdxByCategory } from "@/lib/data-fetcher";
 import Post from "../mdx/Post";
 import Title from "../Title";
 
-async function ExperienceContent() {
-  const experienceContent = await fetchMdxByCategory("experience");
-  experienceContent.reverse();
+async function ProjectContent() {
+  const projectContent = await fetchMdxByCategory("projects");
   return (
     <div className="mt-10">
-      <Title title="Experience" />
-      {experienceContent.map((content, index) => (
+      <Title title="Projects" />
+      {projectContent.map((content, index) => (
         <Post
           key={index}
           metadata={content.metadata}
@@ -19,4 +18,4 @@ async function ExperienceContent() {
   );
 }
 
-export default ExperienceContent;
+export default ProjectContent;

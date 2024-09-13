@@ -8,7 +8,7 @@ async function AboutMe() {
   const aboutMeRaw = await fetchMdxByCategory("aboutMe");
   const aboutMe = aboutMeRaw[0].metadata;
   return (
-    <div className="flex flex-col justify-center align-middle min-w-fit *:mt-1">
+    <div className="flex flex-col justify-center align-middle min-w-fit *:mt-1 text-cat-mocha-text">
       <ProfilePic />
       <BarItem text={`${aboutMe.name}`} textStyle="text-5xl font-extrabold" />
       <BarItem
