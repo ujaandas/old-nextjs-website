@@ -8,7 +8,7 @@ async function AboutMe() {
   const aboutMeRaw = await fetchMdxByCategory("aboutMe");
   const aboutMe = aboutMeRaw[0].metadata;
   return (
-    <div className="flex flex-col justify-center align-middle min-w-fit *:mt-1 text-cat-mocha-text">
+    <div className="flex flex-col justify-center align-middle min-w-fit *:mt-1 dark:text-cat-mocha-text text-cat-latte-text">
       <ProfilePic />
       <BarItem text={`${aboutMe.name}`} textStyle="text-5xl font-extrabold" />
       <BarItem
@@ -22,19 +22,19 @@ async function AboutMe() {
       <div className="flex flex-row">
         <BarItem link={aboutMe.github}>
           <FaGithub
-            className="text-cat-latte-text hover:text-gray-800 mr-1"
+            className="dark:text-cat-mocha-text text-cat-latte-text hover:text-gray-800 dark:hover:text-gray-200 mr-1"
             size={22}
           />
         </BarItem>
         <BarItem link={aboutMe.linkedin}>
           <FaLinkedin
-            className="text-cat-latte-text hover:text-gray-800 mr-1"
+            className="dark:text-cat-mocha-text text-cat-latte-text hover:text-gray-800 dark:hover:text-gray-200 mr-1"
             size={22}
           />
         </BarItem>
         <BarItem link={aboutMe.instagram}>
           <FaInstagram
-            className="text-cat-latte-text hover:text-gray-800 mr-1"
+            className="dark:text-cat-mocha-text text-cat-latte-text hover:text-gray-800 dark:hover:text-gray-200 mr-1"
             size={22}
           />
         </BarItem>
