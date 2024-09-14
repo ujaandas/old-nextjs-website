@@ -1,20 +1,14 @@
 import { fetchMdxByCategory } from "@/lib/data-fetcher";
 import Post from "../mdx/Post";
 import Title from "../Title";
+import PostTimeline from "../PostTimeline";
 
 async function ExperienceContent() {
-  const experienceContent = await fetchMdxByCategory("experience");
-  experienceContent.reverse();
+  const experienceContent = (await fetchMdxByCategory("experience")).reverse();
   return (
-    <div className="mt-10">
+    <div className="">
       <Title title="Experience" />
-      {experienceContent.map((content, index) => (
-        <Post
-          key={index}
-          metadata={content.metadata}
-          content={content.content}
-        />
-      ))}
+      <PostTimeline posts={experienceContent} />
     </div>
   );
 }
