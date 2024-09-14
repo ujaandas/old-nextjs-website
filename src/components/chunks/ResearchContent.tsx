@@ -5,7 +5,7 @@ import Title from "../Title";
 async function ResearchContent() {
   const researchContent = await fetchMdxByCategory("research");
   return (
-    <div className="mt-10">
+    <div className="">
       <Title title="Research" />
       {researchContent.map((content, index) => (
         <Post
