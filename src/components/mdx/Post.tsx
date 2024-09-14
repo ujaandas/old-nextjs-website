@@ -13,7 +13,7 @@ async function Post({ metadata, content }: PostProps) {
         <h2 className="text-xl font-semibold">{metadata.subtitle}</h2>
         <h2 className="text-md opacity-80">{metadata.title}</h2>
       </div>
-      <article className="prose prose-mg max-w-xl my-3 dark:text-cat-mocha-overlay-2 text-cat-latte-overlay-2 opacity-90">
+      <article className="prose prose-mg max-w-xl my-3 dark:text-cat-mocha-overlay-2 text-cat-latte-overlay-2">
         <MDXRemote source={content} />
       </article>
       <h3 className="text-sm dark:text-cat-mocha-overlay-0 text-cat-latte-overlay-0">

@@ -9,7 +9,7 @@ function Tags({ tags }: TagsProps) {
       {tags.map((tag, index) => (
         <span
           key={index}
-          className="text-sm dark:bg-cat-mocha-sky bg-cat-latte-sky bg:text-cat-mocha-sky text-cat-latte-sky bg-opacity-10 px-3 py-1 rounded-full mr-2 mb-2"
+          className="text-sm dark:bg-cat-mocha-sky bg-cat-latte-sky dark:text-cat-mocha-sky text-cat-latte-sky bg-opacity-10 dark:bg-opacity-10 px-3 py-1 rounded-full mr-2 mb-2"
         >
           {tag}
         </span>
