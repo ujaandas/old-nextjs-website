@@ -1,5 +1,5 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import Tags from "./Tags";
+import Tags from "./mdx-tags";
 
 interface PostProps {
   metadata: any;
