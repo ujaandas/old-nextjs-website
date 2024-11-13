@@ -2,12 +2,17 @@ import fs from "fs";
 import path from "path";
 import { matterizeFile, readGrayMatter } from "./helper/mdx";
 import { parseDate } from "./date";
+import { TagProps } from "@/components/tag";
 
 const BASE_PATH = path.join(process.cwd(), "/blog");
 
 interface Metadata {
+  title: string;
   date: string;
-  [key: string]: any;
+  image: string;
+  description: string;
+  link: string;
+  tags: TagProps[];
 }
 
 interface MdxFile {
@@ -52,7 +57,11 @@ const readMdx = async (
 
   const typedMetadata: Metadata = {
     date: metadata.date,
-    ...metadata,
+    description: metadata.description,
+    image: metadata.image,
+    link: metadata.link,
+    tags: metadata.tags,
+    title: metadata.title,
   };
 
   return { metadata: typedMetadata, content };

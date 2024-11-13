@@ -49,7 +49,7 @@ with others. Welcome to my personal website!`;
 
 export default async function HomePage() {
   const blogPosts2 = await getFirstNPosts(3);
-  console.log(blogPosts2);
+  console.log(`blogPosts2`, blogPosts2);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -69,8 +69,8 @@ export default async function HomePage() {
         <section>
           <h2 className="text-2xl font-bold mb-3">Mini Blog</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post, index) => (
-              <BlogPostCard key={index} {...post} />
+            {blogPosts2.map((post, index) => (
+              <BlogPostCard key={index} {...post.metadata} />
             ))}
           </div>
         </section>

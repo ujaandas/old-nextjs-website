@@ -1,12 +1,12 @@
 export const parseDate = (dateString: string): Date => {
   // Check if the string matches the expected format
   const dateMatch = dateString.match(
-    /^(\d{1,2}:\d{2}) (am|pm) (\d{1,2})\/(\d{1,2})\/(\d{2})$/i
+    /^(\d{1,2}:\d{2})(am|pm) (\d{1,2})\/(\d{1,2})\/(\d{2})$/i
   );
 
   if (!dateMatch) {
     throw new Error(
-      `Invalid date format: "${dateString}". Expected format: "HH:MM am/pm DD/MM/YY" (e.g., "9:30 am 25/12/23")`
+      `Invalid date format: "${dateString}". Expected format: "HH:MMam/pm DD/MM/YY" (e.g., "9:30am 25/12/23")`
     );
   }
 
