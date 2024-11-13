@@ -1,14 +1,15 @@
+import { CalendarIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
-import { CalendarIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import Tag, { TagProps } from "./tag";
 
 interface BlogPostCardProps {
   title: string;
@@ -16,6 +17,7 @@ interface BlogPostCardProps {
   image: string;
   description: string;
   link: string;
+  tags: TagProps[];
 }
 
 export default function BlogPostCard({
@@ -24,9 +26,10 @@ export default function BlogPostCard({
   image,
   description,
   link,
+  tags,
 }: BlogPostCardProps) {
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden flex flex-col w-full">
       <CardHeader className="p-0">
         <AspectRatio ratio={16 / 9}>
           <Image
@@ -38,19 +41,24 @@ export default function BlogPostCard({
           />
         </AspectRatio>
       </CardHeader>
-      <CardContent className="p-4 md:p-6">
+      <CardContent className="p-4 md:p-6 flex-grow">
         <div className="flex items-center text-sm text-muted-foreground mb-2">
           <CalendarIcon className="mr-1 h-3 w-3" />
           <time dateTime={date}>{date}</time>
         </div>
-        <h3 className="text-lg font-semibold leading-none tracking-tight mb-2">
+        <h3 className="text-xl font-semibold leading-tight tracking-tight mb-2">
           {title}
         </h3>
-        <p className="text-sm text-muted-foreground line-clamp-3">
-          {description}
-        </p>
+        <div className="flex flex-wrap mb-2">
+          {tags.map((tag, index) => (
+            <Tag key={index} text={tag.text} color={tag.color} />
+          ))}
+        </div>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </CardContent>
-      <CardFooter className="p-4 pt-0 md:p-6 md:pt-0">
+      <CardFooter className="p-4 pt-0 md:p-6 md:pt-0 mt-auto">
+        {" "}
+        {/* Ensure footer is at the bottom */}
         <Button asChild className="w-full">
           <Link href={link}>Read More</Link>
         </Button>

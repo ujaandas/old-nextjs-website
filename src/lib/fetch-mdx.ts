@@ -84,3 +84,11 @@ export const fetchAllMdx = async (): Promise<MdxFile[]> => {
 
   return sortedMdxData;
 };
+
+export const getFirstNPosts = async (n: number): Promise<MdxFile[]> => {
+  const allPosts = await fetchAllMdx();
+  if (n >= allPosts.length) {
+    return allPosts;
+  }
+  return allPosts.slice(0, n);
+};
