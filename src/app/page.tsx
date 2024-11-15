@@ -91,14 +91,14 @@ const experiences = [
       "Developed a Python-based Github scraper, collected Java abstract syntax trees, and enhanced assertion generation precision by 33%.",
   },
   {
-    duration: "Apr. 2024 – Sep. 2024",
+    duration: "Apr. 2024 - Sep. 2024",
     company: "Stellerus Technology",
     position: "Software Engineering Intern",
     description:
       "Developed backend services for real-time geospatial data, optimized geometry calculations, and designed a Redis-based distributed caching system.",
   },
   {
-    duration: "Oct. 2022 – Jul. 2023",
+    duration: "Oct. 2022 - Jul. 2023",
     company: "HKUST, HCI Initiative Lab",
     position: "Full-Stack Research Assistant",
     description:

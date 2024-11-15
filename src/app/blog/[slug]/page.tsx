@@ -1,8 +1,7 @@
 import Post from "@/components/mdx/mdx-post";
-import { getAllPosts, getPostBySlug, MdxFile } from "@/lib/fetch-mdx";
+import { getAllPosts, getPostBySlug } from "@/lib/fetch-mdx";
 
 interface BlogPostProps {
-  post: MdxFile | null;
   params: {
     slug: string;
   };
