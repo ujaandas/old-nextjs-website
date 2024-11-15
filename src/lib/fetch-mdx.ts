@@ -11,11 +11,10 @@ interface Metadata {
   date: string;
   image: string;
   description: string;
-  link: string;
   tags: TagProps[];
 }
 
-interface MdxFile {
+export interface MdxFile {
   file: string;
   metadata: Metadata;
   content: string;
@@ -59,7 +58,6 @@ const readMdx = async (
     date: metadata.date,
     description: metadata.description,
     image: metadata.image,
-    link: metadata.link,
     tags: metadata.tags,
     title: metadata.title,
   };
@@ -100,4 +98,9 @@ export const getFirstNPosts = async (n: number): Promise<MdxFile[]> => {
     return allPosts;
   }
   return allPosts.slice(0, n);
+};
+
+export const getPostBySlug = async (slug: string): Promise<MdxFile | null> => {
+  const allPosts = await fetchAllMdx();
+  return allPosts.find((post) => post.file === `${slug}.mdx`) || null;
 };

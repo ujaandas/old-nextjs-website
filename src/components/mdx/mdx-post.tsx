@@ -22,7 +22,7 @@ async function Post({ metadata, content, showDate }: PostProps) {
           {metadata.date}
         </h3>
       )}
-      <Tags tags={metadata.tags} />
+      {/* <Tags tags={metadata.tags} /> */}
     </div>
   );
 }

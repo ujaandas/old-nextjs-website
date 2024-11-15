@@ -12,20 +12,20 @@ import {
 import Tag, { TagProps } from "./tag";
 
 interface BlogPostCardProps {
+  filename: string;
   title: string;
   date: string;
   image: string;
   description: string;
-  link: string;
   tags: TagProps[];
 }
 
 export default function BlogPostCard({
+  filename,
   title,
   date,
   image,
   description,
-  link,
   tags,
 }: BlogPostCardProps) {
   return (
@@ -57,10 +57,8 @@ export default function BlogPostCard({
         <p className="text-sm text-muted-foreground">{description}</p>
       </CardContent>
       <CardFooter className="p-4 pt-0 md:p-6 md:pt-0 mt-auto">
-        {" "}
-        {/* Ensure footer is at the bottom */}
         <Button asChild className="w-full">
-          <Link href={link}>Read More</Link>
+          <Link href={`blog/${filename.split(".")[0]}`}>Read More</Link>
         </Button>
       </CardFooter>
     </Card>
