@@ -84,24 +84,24 @@ Welcome to my personal website!`;
 
 const experiences = [
   {
-    duration: "2020 - Present",
-    company: "Tech Innovators Inc.",
-    position: "Senior Software Engineer",
+    duration: "2024 - Present",
+    company: "HKUST, CASTLE Lab",
+    position: "Undergraduate Research Assistant",
     description:
-      "Led development of cutting-edge web applications using React and Node.js, improving user engagement by 40%.",
+      "Developed a Python-based Github scraper, collected Java abstract syntax trees, and enhanced assertion generation precision by 33%.",
   },
   {
-    duration: "2018 - 2020",
-    company: "Digital Solutions Ltd.",
-    position: "Full Stack Developer",
+    duration: "Apr. 2024 – Sep. 2024",
+    company: "Stellerus Technology",
+    position: "Software Engineering Intern",
     description:
-      "Developed and maintained multiple client websites, utilizing a variety of modern web technologies and frameworks.",
+      "Developed backend services for real-time geospatial data, optimized geometry calculations, and designed a Redis-based distributed caching system.",
   },
   {
-    duration: "2016 - 2018",
-    company: "StartUp Ventures",
-    position: "Junior Developer",
+    duration: "Oct. 2022 – Jul. 2023",
+    company: "HKUST, HCI Initiative Lab",
+    position: "Full-Stack Research Assistant",
     description:
-      "Assisted in the creation of mobile-responsive designs and implemented new features for the companys main product.",
+      "Led front-end development of a robot trajectory feedback system, integrated React.js with Python Flask backend, and co-authored papers published in IUI and AAAI.",
   },
 ];
