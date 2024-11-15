@@ -8,15 +8,10 @@ import {
   FaLinkedin,
   FaFileDownload,
 } from "react-icons/fa";
-
-const text = `Hi, I'm <strong>Ujaan Das</strong>, 
-a computer engineering student at the Hong Kong University of Science and Technology. 
-I love building things and sharing my knowledge with others. 
-Welcome to my personal website!`;
+import Timeline from "@/components/timeline";
 
 export default async function HomePage() {
   const blogPosts2 = await getFirstNPosts(3);
-  console.log(`blogPosts2`, blogPosts2);
 
   return (
     <>
@@ -24,7 +19,7 @@ export default async function HomePage() {
         <Image src={pfpLaptop} width={200} height={200} alt="Profile picture" />
         <div className="flex flex-col md:ml-4 mt-10 text-center md:text-left">
           <p className="text-lg">
-            <span dangerouslySetInnerHTML={{ __html: text }} />
+            <span dangerouslySetInnerHTML={{ __html: introText }} />
           </p>
           <div className="flex flex-row mt-4 align-middle items-center justify-center md:justify-start">
             <LinkIcon href="./UjaanDasResume.pdf">
@@ -47,7 +42,12 @@ export default async function HomePage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-3">Featured Posts</h2>
+        <h2 className="text-2xl font-bold mb-5">Work Experience</h2>
+        <Timeline experiences={experiences} />
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-bold mb-5">Featured Posts</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts2.map((post, index) => (
             <BlogPostCard key={index} filename={post.file} {...post.metadata} />
@@ -76,3 +76,32 @@ function LinkIcon({
     </a>
   );
 }
+
+const introText = `Hi, I'm <strong>Ujaan Das</strong>, 
+a computer engineering student at the Hong Kong University of Science and Technology. 
+I love building things and sharing my knowledge with others. 
+Welcome to my personal website!`;
+
+const experiences = [
+  {
+    duration: "2020 - Present",
+    company: "Tech Innovators Inc.",
+    position: "Senior Software Engineer",
+    description:
+      "Led development of cutting-edge web applications using React and Node.js, improving user engagement by 40%.",
+  },
+  {
+    duration: "2018 - 2020",
+    company: "Digital Solutions Ltd.",
+    position: "Full Stack Developer",
+    description:
+      "Developed and maintained multiple client websites, utilizing a variety of modern web technologies and frameworks.",
+  },
+  {
+    duration: "2016 - 2018",
+    company: "StartUp Ventures",
+    position: "Junior Developer",
+    description:
+      "Assisted in the creation of mobile-responsive designs and implemented new features for the companys main product.",
+  },
+];
