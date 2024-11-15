@@ -47,7 +47,7 @@ export default async function HomePage() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-3">Mini Blog</h2>
+        <h2 className="text-2xl font-bold mb-3">Featured Posts</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts2.map((post, index) => (
             <BlogPostCard key={index} filename={post.file} {...post.metadata} />

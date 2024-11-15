@@ -66,7 +66,7 @@ const readMdx = async (
 };
 
 // Update fetchAllMdx to sort the posts by date
-export const fetchAllMdx = async (): Promise<MdxFile[]> => {
+export const getAllPosts = async (): Promise<MdxFile[]> => {
   const mdxFiles = await fetchMdx(BASE_PATH);
   const mdxData = await Promise.all(
     mdxFiles.map(async (file) => {
@@ -93,7 +93,7 @@ export const fetchAllMdx = async (): Promise<MdxFile[]> => {
 };
 
 export const getFirstNPosts = async (n: number): Promise<MdxFile[]> => {
-  const allPosts = await fetchAllMdx();
+  const allPosts = await getAllPosts();
   if (n >= allPosts.length) {
     return allPosts;
   }
@@ -101,6 +101,6 @@ export const getFirstNPosts = async (n: number): Promise<MdxFile[]> => {
 };
 
 export const getPostBySlug = async (slug: string): Promise<MdxFile | null> => {
-  const allPosts = await fetchAllMdx();
+  const allPosts = await getAllPosts();
   return allPosts.find((post) => post.file === `${slug}.mdx`) || null;
 };
