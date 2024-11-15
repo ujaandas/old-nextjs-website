@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="flex items-center h-14 px-4 md:px-6 w-full">
-      <nav className="flex-1 hidden md:flex justify-start">
+    <header className="flex items-center h-14 w-full">
+      <nav className="flex-1 flex justify-center md:justify-start">
         <HeaderNavButton href="/" text="Home" />
         <HeaderNavButton href="/projects" text="Projects" />
         <HeaderNavButton href="/blog" text="Blog" />
-        <HeaderNavButton href="/contact" text="Contact" />
+        {/* <HeaderNavButton href="/contact" text="Contact" /> */}
       </nav>
     </header>
   );
