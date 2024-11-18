@@ -1,4 +1,4 @@
-import * as React from "react";
+"use client";
 
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -7,6 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import {
   SiCplusplus,
@@ -26,11 +27,38 @@ import {
   SiPostgresql,
   SiMongodb,
 } from "react-icons/si";
+import { useEffect, useRef, useState } from "react";
 
-export default function IconCarousel() {
+export default function IconCarousel({
+  intervalDuration = 3000,
+}: {
+  intervalDuration?: number;
+}) {
+  const [api, setApi] = useState<CarouselApi>();
+  const intervalRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    // Start the interval
+    intervalRef.current = window.setInterval(() => {
+      api.scrollNext();
+    }, intervalDuration);
+
+    // Cleanup function to clear the interval when the component unmounts
+    return () => {
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [api, intervalDuration]);
+
   return (
     <Carousel
       className="w-full max-w-3xl"
+      // setApi={setApi}
       opts={{
         align: "start",
         loop: true,
