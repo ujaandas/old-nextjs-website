@@ -6,10 +6,23 @@ export default async function BlogPage() {
   const blogPosts = await getAllPosts();
 
   return (
-    <section className="flex flex-col align-middle items-start mb-16">
-      <h2 className="text-2xl font-bold mb-3">Work Experience</h2>
-      <Timeline experiences={experiences} />
-    </section>
+    <>
+      <section className="flex flex-col align-middle items-start my-10">
+        <h2 className="text-2xl font-bold mb-5">Work Experience</h2>
+        <Timeline experiences={experiences} />
+      </section>
+
+      <section className="flex flex-col align-middle mb-10">
+        <h2 className="text-2xl font-bold mb-2">{`🌟 Skills & Technologies`}</h2>
+        <ul className="list-disc pl-5 space-y-2">
+          {skills.map((text, index) => (
+            <li key={index}>
+              <p className="leading-relaxed">{text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
   );
 }
 
@@ -35,4 +48,11 @@ const experiences = [
     description:
       "Led front-end development of a robot trajectory feedback system, integrated React.js with Python Flask backend, and co-authored papers published in IUI and AAAI.",
   },
+];
+
+const skills = [
+  "💻 Programming Languages: C/C++, Python, Java, C#, Javascript/Typescript, HTML/CSS, SQL",
+  "⚙️ Frameworks: ASP.NET Core, Maven, FastAPI, Next.js, React.js, Node.js",
+  "📊 Technologies: Linux, Git, Github, Azure, AWS, Docker",
+  "🗃️ Databases: PostgreSQL, MongoDB, MySQL",
 ];
