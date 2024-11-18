@@ -5,6 +5,7 @@ export default function Header() {
     <header className="flex items-center h-14 w-full">
       <nav className="flex-1 flex justify-center md:justify-start">
         <HeaderNavButton href="/" text="Home" />
+        <HeaderNavButton href="/about" text="About" />
         <HeaderNavButton href="/projects" text="Projects" />
         <HeaderNavButton href="/blog" text="Blog" />
         {/* <HeaderNavButton href="/contact" text="Contact" /> */}

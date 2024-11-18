@@ -8,16 +8,17 @@ import {
   FaLinkedin,
   FaFileDownload,
 } from "react-icons/fa";
-import Timeline from "@/components/timeline";
+import PlainText from "@/components/mdx/mdx-plain-text";
 
 export default async function HomePage() {
   const blogPosts2 = await getFirstNPosts(3);
 
   return (
     <>
-      <section className="flex flex-col md:flex-row align-middle items-center mb-16">
+      <section className="flex flex-col md:flex-row align-middle items-center mb-10">
         <Image src={pfpLaptop} width={200} height={200} alt="Profile picture" />
         <div className="flex flex-col md:ml-4 mt-10 text-center md:text-left">
+          <h1 className="text-4xl font-bold mb-3">{`Hey 👋, I'm Ujaan!`}</h1>
           <p className="text-lg">
             <span dangerouslySetInnerHTML={{ __html: introText }} />
           </p>
@@ -41,13 +42,52 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section>
-        <h2 className="text-2xl font-bold mb-5">Work Experience</h2>
-        <Timeline experiences={experiences} />
+      <section className="flex flex-col align-middle mb-10">
+        <h2 className="text-2xl font-bold mb-2">{`⏰ Currently I'm...`}</h2>
+        <ul className="list-disc pl-5 space-y-2">
+          {currently.map((text, index) => (
+            <li key={index}>
+              <p
+                dangerouslySetInnerHTML={{ __html: text }}
+                className="leading-relaxed"
+              />
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <section>
-        <h2 className="text-2xl font-bold mb-5">Featured Posts</h2>
+      <section className="flex flex-col align-middle mb-10">
+        <h2 className="text-2xl font-bold mb-2">{`🌟 Skills & Technologies`}</h2>
+        <ul className="list-disc pl-5 space-y-2">
+          {skills.map((text, index) => (
+            <li key={index}>
+              <p className="leading-relaxed">{text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="flex flex-col align-middle mb-10">
+        <div className="flex flex-row align-middle items-center mb-5 justify-between">
+          <h2 className="text-2xl font-bold">{`📽️ Featured Projects`}</h2>
+          <LinkIcon href="/projects" newTab={false}>
+            <span className="mr-2">{`View More...`}</span>
+          </LinkIcon>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts2.map((post, index) => (
+            <BlogPostCard key={index} filename={post.file} {...post.metadata} />
+          ))}
+        </div>
+      </section>
+
+      <section className="flex flex-col align-middle mb-10">
+        <div className="flex flex-row align-middle items-center mb-5 justify-between">
+          <h2 className="text-2xl font-bold">{`📬 Featured Posts`}</h2>
+          <LinkIcon href="/blog" newTab={false}>
+            <span className="mr-2">{`View More...`}</span>
+          </LinkIcon>
+        </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {blogPosts2.map((post, index) => (
             <BlogPostCard key={index} filename={post.file} {...post.metadata} />
@@ -61,47 +101,40 @@ export default async function HomePage() {
 function LinkIcon({
   href,
   children,
+  className,
+  newTab = true,
 }: {
   href: string;
   children: React.ReactNode;
+  className?: string;
+  newTab?: boolean;
 }) {
   return (
     <a
       href={href}
-      target="_blank"
+      target={newTab ? "_blank" : "_self"}
       rel="noopener noreferrer"
-      className="text-gray-500 [&:hover]:text-gray-800 transition-colors"
+      className={`text-gray-500 [&:hover]:text-gray-800 transition-colors cursor-pointer ${className}`}
     >
       {children}
     </a>
   );
 }
 
-const introText = `Hi, I'm <strong>Ujaan Das</strong>, 
-a computer engineering student at the Hong Kong University of Science and Technology. 
+const introText = `I'm a computer engineering student at the
+Hong Kong University of Science and Technology. 
 I love building things and sharing my knowledge with others. 
 Welcome to my personal website!`;
 
-const experiences = [
-  {
-    duration: "2024 - Present",
-    company: "HKUST, CASTLE Lab",
-    position: "Undergraduate Research Assistant",
-    description:
-      "Developed a Python-based Github scraper, collected Java abstract syntax trees, and enhanced assertion generation precision by 33%.",
-  },
-  {
-    duration: "Apr. 2024 - Sep. 2024",
-    company: "Stellerus Technology",
-    position: "Software Engineering Intern",
-    description:
-      "Developed backend services for real-time geospatial data, optimized geometry calculations, and designed a Redis-based distributed caching system.",
-  },
-  {
-    duration: "Oct. 2022 - Jul. 2023",
-    company: "HKUST, HCI Initiative Lab",
-    position: "Full-Stack Research Assistant",
-    description:
-      "Led front-end development of a robot trajectory feedback system, integrated React.js with Python Flask backend, and co-authored papers published in IUI and AAAI.",
-  },
+const currently = [
+  "<strong> 🤖 Working on my Final Year Project </strong> - We're developing a person-specific following robot that uses UWB, CV and SLAM to navigate complex environments.",
+  "<strong> 🔬 Researching large-scale assertion generation in Java </strong> - I'm working under Prof. SC Cheung at HKUST to explore the efficacy of different LLMs in testcase generation.",
+  "<strong> ⌨️ Building my own personal keyboard </strong> - Built on the STM32, I'm working on a column-staggered, ZMK-compatible ergonomic split keyboard.",
+];
+
+const skills = [
+  "💻 Programming Languages: C/C++, Python, Java, C#, Javascript/Typescript, HTML/CSS, SQL",
+  "⚙️ Frameworks: ASP.NET Core, Maven, FastAPI, Next.js, React.js, Node.js",
+  "📊 Technologies: Linux, Git, Github, Azure, AWS, Docker",
+  "🗃️ Databases: PostgreSQL, MongoDB, MySQL",
 ];
