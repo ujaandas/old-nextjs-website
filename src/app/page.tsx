@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaFileDownload,
 } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import IconCarousel from "@/components/icon-carousel";
 
 export default async function HomePage() {
@@ -23,8 +24,12 @@ export default async function HomePage() {
             height={200}
             alt="Profile picture"
           />
-          <div className="flex flex-col md:ml-4 mt-10 text-center md:text-left">
-            <h1 className="text-4xl font-bold mb-3">{`Hey 👋, I'm Ujaan!`}</h1>
+          <div className="flex flex-col md:ml-4 mt-10 items-center md:items-start text-center md:text-left">
+            <h1 className="text-4xl font-bold mb-1">{`Hey 👋, I'm Ujaan!`}</h1>
+            <p className="flex flex-row items-center align-bottom text-md text-gray-400 mb-3">
+              <FaLocationDot className="mr-2" />
+              Hong Kong
+            </p>
             <p className="text-lg">
               <span dangerouslySetInnerHTML={{ __html: introText }} />
             </p>
@@ -124,7 +129,7 @@ I love building things and sharing my knowledge with others.
 Welcome to my personal website!`;
 
 const currently = [
-  "<strong> 🤖 Working on my Final Year Project </strong> - We're developing a person-specific following robot that uses UWB, CV and SLAM to navigate complex environments.",
-  "<strong> 🔬 Researching large-scale assertion generation in Java </strong> - I'm working under Prof. SC Cheung at HKUST to explore the efficacy of different LLMs in testcase generation.",
-  "<strong> ⌨️ Building my own personal keyboard </strong> - Built on the STM32, I'm working on a column-staggered, ZMK-compatible ergonomic split keyboard.",
+  "<strong> 🤖 Working on my Final Year Project </strong> - Developing a person-specific following robot that uses UWB, CV and SLAM to navigate complex environments and follow certain individuals.",
+  "<strong> 🔬 Researching large-scale assertion generation in Java </strong> - Working with Prof. SC Cheung at HKUST to explore the efficacy of different LLMs in Java testcase generation.",
+  "<strong> ⌨️ Building my own custom keyboard </strong> - Developing firmware and soldering components together for my very own custom ergonomic, split-layout keyboard, built on the STM32 MCU.",
 ];
